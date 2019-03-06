@@ -1,0 +1,28 @@
+﻿@using HospitalManagement.Models
+
+@model List<DoctorSchedule>
+
+<h1>DoctorSchedule</h1>
+
+<table cellspacing="10">
+    <tr>
+        <th>ScheduleId </th>
+        <th>DoctorId   </th>
+        <th>DoctorName   </th>
+        <th>TotalSlots  </th>
+        <th>DaysOfTheWeek  </th>
+        <th>Time  </th>
+        <th>ContactNo  </th>
+    </tr>
+    @foreach (DoctorSchedule doctorSchedule in Model)
+    {
+        <tr>
+            <td>@doctorSchedule.ScheduleId</td>
+            <td>@doctorSchedule.DoctorId</td>
+            <td>@doctorSchedule.DoctorName</td>
+            <td>@doctorSchedule.TotalSlots</td>
+            <td>@doctorSchedule.DaysOfTheWeek</td>
+            <td>@doctorSchedule.Time</td>
+        </tr>
+    }
+</table>

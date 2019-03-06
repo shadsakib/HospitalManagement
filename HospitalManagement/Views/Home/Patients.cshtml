@@ -1,0 +1,32 @@
+﻿@using HospitalManagement.Models
+
+@model List<Patient>
+
+<h1>Patient</h1>
+
+<table cellspacing="10">
+    <tr>
+        <th>PatientId </th>
+        <th>PatientName  </th>
+        <th> Username   </th>
+        <th> Password  </th>
+        <th> Gender  </th>
+        <th> PatientAddress  </th>
+        <th> ContactNo  </th>
+        <th> BloodGroup  </th>
+    </tr>
+    @foreach (Patient patient in Model)
+    {
+    <tr>
+        <td>@patient.PatientId</td>
+        <td>@patient.PatientName</td>
+        <td>@patient.Username</td>
+        <td>@patient.Password</td>
+        <td>@patient.Gender</td>
+        <td>@patient.Gender</td>
+        <td>@patient.PatientAddress</td>
+        <td>@patient.ContactNo</td>
+        <td>@patient.BloodGroup</td>
+    </tr>
+    }
+</table>

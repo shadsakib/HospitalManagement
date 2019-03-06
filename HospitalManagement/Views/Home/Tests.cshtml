@@ -1,0 +1,27 @@
+﻿@using HospitalManagement.Models
+
+@model List<Test>
+
+<h1>Tests</h1>
+
+<table cellspacing="10">
+    <tr>
+        <th> TestId</th>
+        <th> PatientId  </th>
+        <th> DoctorId </th>
+        <th> TestName  </th>
+        <th>  TestType  </th>
+        <th>  Findings  </th>
+    </tr>
+    @foreach (Test test in Model)
+    {
+    <tr>
+        <td>@test.TestId</td>
+        <td>@test.PatientId</td>
+        <td>@test.DoctorId</td>
+        <td>@test.TestName</td>
+        <td>@test.TestType</td>
+        <td>@test.Findings</td>
+    </tr>
+    }
+</table>

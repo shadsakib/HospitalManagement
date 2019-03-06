@@ -1,0 +1,25 @@
+﻿@using HospitalManagement.Models
+
+@model List<Doctor>
+
+<h1>Doctor</h1>
+
+<table cellspacing="10">
+    <tr>
+        <th>Doctor Id  </th>
+        <th>Name  </th>
+        <th>Department  </th>
+        <th>Qualification  </th>
+        <th>Gender  </th>
+    </tr>
+    @foreach (Doctor doctor in Model)
+    {
+    <tr>
+        <td>@doctor.DoctorId</td>
+        <td>@doctor.DoctorName</td>
+        <td>@doctor.Department</td>
+        <td>@doctor.Qualification</td>
+        <td>@doctor.Gender</td>
+    </tr>
+    }
+</table>

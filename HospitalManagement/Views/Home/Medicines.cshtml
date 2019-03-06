@@ -1,0 +1,25 @@
+﻿@using HospitalManagement.Models
+
+@model List<Medicine>
+
+<h1>Medicine</h1>
+
+<table cellspacing="10">
+    <tr>
+        <th> MedicineId </th>
+        <th> BrandName  </th>
+        <th> GenericName  </th>
+        <th> Dosages  </th>
+        <th> SideEffects  </th>
+    </tr>
+    @foreach (Medicine medicine in Model)
+    {
+        <tr>
+            <td>@medicine.MedicineId</td>
+            <td>@medicine.BrandName</td>
+            <td>@medicine.GenericName</td>
+            <td>@medicine.Dosages</td>
+            <td>@medicine.SideEffects</td>
+        </tr>
+    }
+</table>
