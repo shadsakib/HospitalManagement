@@ -13,12 +13,10 @@ namespace HospitalManagement
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<HospitalManagement.Models.DoctorContext>(null);
-            Database.SetInitializer<HospitalManagement.Models.DoctorScheduleContext>(null);
-            Database.SetInitializer<HospitalManagement.Models.MedicineContext>(null);
-            Database.SetInitializer<HospitalManagement.Models.PatientContext>(null);
-            Database.SetInitializer<HospitalManagement.Models.PrescriptionContext>(null);
-            Database.SetInitializer<HospitalManagement.Models.TestContext>(null);
+            MvcHandler.DisableMvcResponseHeader = true;
+            Database.SetInitializer<HospitalManagement.Models.HospitalContext>(null);
+
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

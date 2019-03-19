@@ -14,54 +14,82 @@ namespace HospitalManagement.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Create()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
         
         public ActionResult Patients()
         {
-            PatientContext patientContext = new PatientContext();
+            HospitalContext patientContext = new HospitalContext();
             var model = new List<Patient>();
             model = patientContext.Patients.ToList();
             return View(model);
         }
         public ActionResult DoctorSchedules()
         {
-            DoctorScheduleContext doctorScheduleContext = new DoctorScheduleContext();
+            HospitalContext doctorScheduleContext = new HospitalContext();
             var model = new List<DoctorSchedule>();
             model = doctorScheduleContext.DoctorSchedules.ToList();
             return View(model);
         }
         public ActionResult Medicines()
         {
-            MedicineContext medicineContext = new MedicineContext();
+            HospitalContext medicineContext = new HospitalContext();
             var model = new List<Medicine>();
             model = medicineContext.Medicines.ToList();
             return View(model);
         }
         public ActionResult Prescriptions()
         {
-            PrescriptionContext prescriptionContext = new PrescriptionContext();
+            HospitalContext prescriptionContext = new HospitalContext();
             var model = new List<Prescription>();
             model = prescriptionContext.Prescriptions.ToList();
             return View(model);
         }
         public ActionResult Tests()
         {
-            TestContext testContext = new TestContext();
+            HospitalContext testContext = new HospitalContext();
             var model = new List<Test>();
             model = testContext.Tests.ToList();
             return View(model);
+        }
+        
+        public ActionResult Registration()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            foreach(string key in collection.AllKeys)
+            {
+                if (key.StartsWith("_") )continue;
+                Response.Write("Key = " + key + " , ");
+                Response.Write("Value = " +collection[key]);
+                Response.Write("<br/>");
+            }
+
+            Patient p = new Patient
+            {
+                PatientName = collection["PatientName"],
+                BloodGroup = collection["BloodGroup"],
+                ContactNo = collection["ContactNo"],
+                Gender = collection["Gender"],         
+                PatientAddress = collection["PatientAddress"],
+                Username = collection["Username"],
+                Password = collection["Password"]
+            };
+
+            HospitalContext hospitalContext = new HospitalContext();
+            hospitalContext.Patients.Add(p);
+            //hospitalContext.SaveChanges();
+
+            return View();
         }
     }
 }

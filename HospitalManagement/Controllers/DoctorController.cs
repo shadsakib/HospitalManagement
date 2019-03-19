@@ -17,7 +17,7 @@ namespace HospitalManagement.Controllers
 
         public ActionResult Doctors()
         {
-            DoctorContext doctorContext = new DoctorContext();
+            HospitalContext doctorContext = new HospitalContext();
             var model = new List<Doctor>();
             model = doctorContext.Doctors.ToList();
             return View(model);
