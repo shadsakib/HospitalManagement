@@ -145,13 +145,6 @@
     <Compile Include="Models\Prescription.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\hospital.mdf" />
@@ -163,6 +156,80 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Main\assets\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Main\assets\css\bootstrap.min.css" />
+    <Content Include="Content\Main\assets\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\Main\assets\css\font-awesome.min.css" />
+    <Content Include="Content\Main\assets\css\fullcalendar.min.css" />
+    <Content Include="Content\Main\assets\css\select2.min.css" />
+    <Content Include="Content\Main\assets\css\style.css" />
+    <Content Include="Content\Main\assets\css\tagsinput.css" />
+    <Content Include="Content\Main\assets\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="Content\Main\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Content\Main\assets\img\attachment.png" />
+    <Content Include="Content\Main\assets\img\blog\blog-01.jpg" />
+    <Content Include="Content\Main\assets\img\blog\blog-02.jpg" />
+    <Content Include="Content\Main\assets\img\blog\blog-03.jpg" />
+    <Content Include="Content\Main\assets\img\blog\blog-04.jpg" />
+    <Content Include="Content\Main\assets\img\blog\blog-thumb-01.jpg" />
+    <Content Include="Content\Main\assets\img\blog\blog-thumb-02.jpg" />
+    <Content Include="Content\Main\assets\img\blog\blog-thumb-03.jpg" />
+    <Content Include="Content\Main\assets\img\blog\blog-thumb-04.jpg" />
+    <Content Include="Content\Main\assets\img\calander.png" />
+    <Content Include="Content\Main\assets\img\clock.png" />
+    <Content Include="Content\Main\assets\img\doctor-03.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-01.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-02.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-03.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-04.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-05.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-06.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-07.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-08.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-09.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-10.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-11.jpg" />
+    <Content Include="Content\Main\assets\img\doctor-thumb-12.jpg" />
+    <Content Include="Content\Main\assets\img\favicon.ico" />
+    <Content Include="Content\Main\assets\img\logo-dark.png" />
+    <Content Include="Content\Main\assets\img\logo.png" />
+    <Content Include="Content\Main\assets\img\patient-thumb-01.jpg" />
+    <Content Include="Content\Main\assets\img\patient-thumb-02.jpg" />
+    <Content Include="Content\Main\assets\img\placeholder-thumb.jpg" />
+    <Content Include="Content\Main\assets\img\placeholder.jpg" />
+    <Content Include="Content\Main\assets\img\sent.png" />
+    <Content Include="Content\Main\assets\img\user-02.jpg" />
+    <Content Include="Content\Main\assets\img\user-03.jpg" />
+    <Content Include="Content\Main\assets\img\user-04.jpg" />
+    <Content Include="Content\Main\assets\img\user-05.jpg" />
+    <Content Include="Content\Main\assets\img\user-06.jpg" />
+    <Content Include="Content\Main\assets\img\user.jpg" />
+    <Content Include="Content\Main\assets\img\video-call.jpg" />
+    <Content Include="Content\Main\assets\js\app.js" />
+    <Content Include="Content\Main\assets\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Main\assets\js\bootstrap.min.js" />
+    <Content Include="Content\Main\assets\js\Chart.bundle.js" />
+    <Content Include="Content\Main\assets\js\chart.js" />
+    <Content Include="Content\Main\assets\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\Main\assets\js\fullcalendar.min.js" />
+    <Content Include="Content\Main\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\Main\assets\js\jquery-ui.min.html" />
+    <Content Include="Content\Main\assets\js\jquery.dataTables.min.js" />
+    <Content Include="Content\Main\assets\js\jquery.fullcalendar.js" />
+    <Content Include="Content\Main\assets\js\jquery.slimscroll.js" />
+    <Content Include="Content\Main\assets\js\moment.min.js" />
+    <Content Include="Content\Main\assets\js\popper.min.js" />
+    <Content Include="Content\Main\assets\js\select2.min.js" />
+    <Content Include="Content\Main\assets\js\tagsinput.js" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\css\lightgallery.min.css" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\fonts\lgd641.svg" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\img\loading.gif" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\img\video-play.png" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\img\vimeo-play.png" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\img\youtube-play.png" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\js\lightgallery-all.min.js" />
+    <Content Include="Content\Main\assets\plugins\summernote\dist\summernote-bs4.css" />
+    <Content Include="Content\Main\assets\plugins\summernote\dist\summernote-bs4.min.js" />
     <Content Include="Content\Medino\assets\css\animate-3.7.0.css" />
     <Content Include="Content\Medino\assets\css\bootstrap-4.1.3.min.css" />
     <Content Include="Content\Medino\assets\css\bootstrap-datetimepicker.min.css" />
@@ -430,7 +497,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="hts-log.txt" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\jquery-ui.min.js" />
@@ -513,6 +579,18 @@
     <Content Include="Content\Medino\assets\sass\setting\_mixin.scss" />
     <Content Include="Content\Medino\assets\sass\setting\_variable.scss" />
     <Content Include="Content\Medino\assets\sass\style.scss" />
+    <Content Include="Content\Main\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Content\Main\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Content\Main\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Content\Main\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\fonts\lgd41d.eot" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\fonts\lgd641.eot" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\fonts\lgd641.ttf" />
+    <Content Include="Content\Main\assets\plugins\light-gallery\fonts\lgd641.woff" />
+    <Content Include="Content\Main\assets\plugins\summernote\dist\font\summernote4c4d.eot" />
+    <Content Include="Content\Main\assets\plugins\summernote\dist\font\summernote4c4d.ttf" />
+    <Content Include="Content\Main\assets\plugins\summernote\dist\font\summernote4c4d.woff" />
+    <Content Include="Content\Main\assets\plugins\summernote\dist\font\summernoted41d.eot" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -543,13 +621,12 @@
     <Content Include="Views\Home\Medicines.cshtml" />
     <Content Include="Views\Home\Prescriptions.cshtml" />
     <Content Include="Views\Home\Tests.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Site1.Master" />
-    <Content Include="Views\Home\Exp.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Shared\Template.cshtml" />
-    <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Shared\Medino.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Main.cshtml" />
+    <Content Include="Views\Home\Doctor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Patient\" />

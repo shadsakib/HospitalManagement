@@ -2,15 +2,17 @@
 
 @{
     ViewBag.Title = "Register Patient";
+    Layout = "~/Views/Shared/Template.cshtml";
 }
 
-<h2>Register Patient</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
+
+<div class="form-horizontal form-signin">
+    <div class="account-logo">
+        <a href="index-2.html"><img src="@Url.Content("~/Content/Template/assets/")img/logo-dark.png" alt=""></a>
+    </div>
     <h4></h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -74,14 +76,14 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
+    <div class="form-group text-center">
+        <button class="btn btn-primary account-btn" type="submit">Signup</button>
+    </div>
+    <div class="text-center login-link">
+        Already have an account? <a href="#">Login</a>
     </div>
 </div>
+<div> @Html.ActionLink("Back to HomePage", "Index") </div>    
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

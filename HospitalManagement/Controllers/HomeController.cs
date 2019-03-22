@@ -14,19 +14,17 @@ namespace HospitalManagement.Controllers
             return View();
         }
 
-        public ActionResult Exp()
+        public ActionResult Doctor()
         {
             return View();
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Register()
         {
             return View();
         }
 
-
-        
         public ActionResult Patients()
         {
             HospitalContext patientContext = new HospitalContext();
@@ -74,7 +72,7 @@ namespace HospitalManagement.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Register(FormCollection collection)
         {
             foreach(string key in collection.AllKeys)
             {
@@ -96,7 +94,7 @@ namespace HospitalManagement.Controllers
             };
 
             HospitalContext hospitalContext = new HospitalContext();
-            hospitalContext.Patients.Add(p);
+            //hospitalContext.Patients.Add(p);
             //hospitalContext.SaveChanges();
 
             return View();

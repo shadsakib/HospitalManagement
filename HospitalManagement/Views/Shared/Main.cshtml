@@ -4,11 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/Content/Template/assets/")img/favicon.ico">
-    <title>Hospital Managment </title>
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Template/assets/")css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Template/assets/")css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Template/assets/")css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/Content/Doctors/assets/")img/favicon.ico">
+    <title>Hospital Management</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Main/assets/")css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Main/assets/")font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Main/assets/")select2.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Main/assets/")bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Main/assets/")style.css">
+
     <link rel="shortcut icon" href="@Url.Content("~/Content/Medino/assets/")images/logo/favicon.png" type="image/x-icon">
 
     <!-- CSS Files -->
@@ -25,7 +28,7 @@
     <![endif]-->
 </head>
 <body>
-    <header class="header-area" style="background: black">
+    <header class="header-area">
         <div id="header" id="home">
             <div class="container">
                 <div class="row align-items-center justify-content-between d-flex">
@@ -45,18 +48,9 @@
             </div>
         </div>
     </header>
+    <div style="height:150px; width:100%"> </div>
 
-    <div style="height:200px"></div>
-
-    <div class="main-wrapper  account-wrapper">
-        <div class="account-page">
-            <div class="account-center">
-                <div class="account-box">
-                    @RenderBody()
-                </div>
-            </div>
-        </div>
-    </div>
+    @RenderBody()
 
     <footer class="footer-area section-padding">
         <div class="footer-copyright">
@@ -83,9 +77,15 @@
             </div>
         </div>
     </footer>
-    <script src="@Url.Content("~/Content/Template/assets/")js/jquery-3.2.1.min.js"></script>
-    <script src="@Url.Content("~/Content/Template/assets/")js/popper.min.js"></script>
-    <script src="@Url.Content("~/Content/Template/assets/")js/bootstrap.min.js"></script>
-    <script src="@Url.Content("~/Content/Template/assets/")js/app.js"></script>
+
+    <script src="@Url.Content("~/Content/Main/assets/")js/jquery-3.2.1.min.js"></script>
+    <script src="@Url.Content("~/Content/Main/assets/")js/popper.min.js"></script>
+    <script src="@Url.Content("~/Content/Main/assets/")js/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Content/Main/assets/")js/jquery.slimscroll.js"></script>
+    <script src="@Url.Content("~/Content/Main/assets/")js/select2.min.js"></script>
+    <script src="@Url.Content("~/Content/Main/assets/")js/moment.min.js"></script>
+    <script src="@Url.Content("~/Content/Main/assets/")js/bootstrap-datetimepicker.min.js"></script>
+    <script src="@Url.Content("~/Content/Main/assets/")js/app.js"></script>
+
 </body>
 </html>
