@@ -14,6 +14,11 @@ namespace HospitalManagement.Controllers
             return View();
         }
 
+        public ActionResult Exp()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -56,6 +61,11 @@ namespace HospitalManagement.Controllers
             var model = new List<Test>();
             model = testContext.Tests.ToList();
             return View(model);
+        }
+
+        public ActionResult Home()
+        {
+            return View();
         }
         
         public ActionResult Registration()

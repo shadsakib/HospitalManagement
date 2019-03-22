@@ -1,0 +1,19 @@
+HTTrack3.49-2+htsswf+htsjava launched on Thu, 21 Mar 2019 14:41:58 at http://newhospitalhtml.bdtask.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://newhospitalhtml.bdtask.com/ -O1 "C:\My Web Sites\hospital" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+14:48:14	Error: 	"Not Found" (404) at link newhospitalhtml.bdtask.com/css/images/ui-icons_444444_256x240.png (from newhospitalhtml.bdtask.com/css/jquery-ui.min.css)
+14:48:14	Error: 	"Not Found" (404) at link newhospitalhtml.bdtask.com/css/images/ui-icons_555555_256x240.png (from newhospitalhtml.bdtask.com/css/jquery-ui.min.css)
+14:48:14	Error: 	"Not Found" (404) at link newhospitalhtml.bdtask.com/css/images/ui-icons_ffffff_256x240.png (from newhospitalhtml.bdtask.com/css/jquery-ui.min.css)
+14:48:14	Error: 	"Not Found" (404) at link newhospitalhtml.bdtask.com/css/images/ui-icons_777620_256x240.png (from newhospitalhtml.bdtask.com/css/jquery-ui.min.css)
+14:48:14	Error: 	"Not Found" (404) at link newhospitalhtml.bdtask.com/css/images/ui-icons_cc0000_256x240.png (from newhospitalhtml.bdtask.com/css/jquery-ui.min.css)
+14:48:14	Error: 	"Not Found" (404) at link newhospitalhtml.bdtask.com/css/images/ui-icons_777777_256x240.png (from newhospitalhtml.bdtask.com/css/jquery-ui.min.css)
+14:48:15	Warning: 	File not parsed, looks like binary: newhospitalhtml.bdtask.com/revolution/css/openhand.cur
+14:48:15	Warning: 	File not parsed, looks like binary: newhospitalhtml.bdtask.com/revolution/css/closedhand.cur
+
+HTTrack Website Copier/3.49-2 mirror complete in 7 minutes 1 seconds : 99 links scanned, 92 files written (11746419 bytes overall) [10041441 bytes received at 23851 bytes/sec], 2670452 bytes transferred using HTTP compression in 53 files, ratio 34%, 4.7 requests per connection
+(6 errors, 2 warnings, 0 messages)
