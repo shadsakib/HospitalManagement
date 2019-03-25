@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/Content/LoginPage/assets/")img/favicon.ico">
+    <title>Preclinic - Log In - Hospital Management</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/LoginPage/assets/")css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/LoginPage/assets/")css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/LoginPage/assets/")css/style.css">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/Medino/assets/")css/animate-3.7.0.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Medino/assets/")css/font-awesome-4.7.0.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Medino/assets/")css/bootstrap-4.1.3.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Medino/assets/")css/owl-carousel.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Medino/assets/")css/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Medino/assets/")css/linearicons.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Medino/assets/")css/style.css">
+    <title>@ViewBag.Title</title>
+</head>
+
+
+<body>
+    <header class="header-area">
+        <div id="header" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                        <a href="/Home"><img src="@Url.Content("~/Content/Medino/assets/")images/logo/logo.png" alt="" title="" /></a>
+                    </div>
+                    <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                            <li class="menu-active"><a href="/Home">Home</a></li>
+                            <li><a href='/Home/#Department'>departments</a></li>
+                            <li><a href='/Home/Doctor'>Doctors</a></li>
+                            <li><a href='/Home/Login'>Login</a></li>
+                            <li><a href="/Home/Register"> Register</a></li>
+                        </ul>
+                    </nav><!-- #nav-menu-container -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div style="height: 120px"></div>
+    <div class="main-wrapper account-wrapper">
+        <div class="account-page">
+            <div class="account-center">
+                <div class="account-box">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer-area section-padding">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <span>
+
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved
+                        </span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="@Url.Content("~/Content/LoginPage/assets/")js/jquery-3.2.1.min.js"></script>
+    <script src="@Url.Content("~/Content/LoginPage/assets/")js/popper.min.js"></script>
+    <script src="@Url.Content("~/Content/LoginPage/assets/")js/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Content/LoginPage/assets/")js/app.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/bootstrap-4.1.3.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/wow.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/owl-carousel.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery.datetimepicker.full.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery.nice-select.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/superfish.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/main.js"></script>
+
+
+</body>
+</html>

@@ -65,8 +65,11 @@
                                 <li class="menu-active"><a href=@Request.Url.OriginalString>Home</a></li>
                                 <li><a href='#Department'>departments</a></li>
                                 <li><a href='/Home/Doctor'>Doctors</a></li>
-                                <li><a href='#'>Contact</a></li>
-                                <li><a href="/Home/Register"> Register</a></li>
+                                @if (Session["UserId"] == null)
+                                {
+                                    <li><a href='/Home/Login'>Login</a></li>
+                                    <li><a href="/Home/Register"> Register</a></li>
+                                }
                             </ul>
                         </nav><!-- #nav-menu-container -->
                     </div>
@@ -81,7 +84,9 @@
                     <div class="col-lg-5">
                         <h4>Caring for better life</h4>
                         <h1>Leading the way in medical excellence</h1>
-                        <p>Earth greater grass for good. Place for divide evening yielding them that. Creeping beginning over gathered brought.</p>
+                        <p>
+                            Now, you can book your appointment online!
+                        </p>
                         <a href="/Home/Register" class="template-btn mt-3">Register now</a>
                     </div>
                 </div>
@@ -92,36 +97,29 @@
         <section class="feature-area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="single-feature text-center item-padding">
-                            <img src="@Url.Content("~/Content/Medino/assets/")images/feature1.png" alt="">
-                            <h3>advance technology</h3>
-                            <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing tree appear</p>
+                            <img src="@Url.Content("~/Content/Medino/assets/")images/icon-doctor.png" alt="">
+                            <h3>Find Doctors</h3>
+                            <p class="pt-3"> Know more about doctors, biography, specializations and feel comfortable to choose who you want.</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="single-feature text-center item-padding mt-4 mt-md-0">
-                            <img src="@Url.Content("~/Content/Medino/assets/")images/feature2.png" alt="">
-                            <h3>comfortable place</h3>
-                            <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing tree appear</p>
+                            <img src="@Url.Content("~/Content/Medino/assets/")images/icon-results.png" alt="">
+                            <h3>Check test results</h3>
+                            <p class="pt-3"> You could see the result of examinations and authorizations pending. Everything Online!</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="single-feature text-center item-padding mt-4 mt-lg-0">
-                            <img src="@Url.Content("~/Content/Medino/assets/")images/feature3.png" alt="">
-                            <h3>quality equipment</h3>
-                            <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing tree appear</p>
+                            <img src="@Url.Content("~/Content/Medino/assets/")images/icon-edit.png" alt="">
+                            <h3>Modify, Cancell or Print</h3>
+                            <p class="pt-3"> You can create your appointment online also modify, Cancel or Print it. Where you want!</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-feature text-center item-padding mt-4 mt-lg-0">
-                            <img src="@Url.Content("~/Content/Medino/assets/")images/feature4.png" alt="">
-                            <h3>friendly staff</h3>
-                            <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing tree appear</p>
-                        </div>
+
                     </div>
                 </div>
-            </div>
         </section>
         <!-- Feature Area End -->
         <!-- Welcome Area Starts -->
@@ -163,50 +161,52 @@
                                 <div class="slide-img">
                                     <img src="@Url.Content("~/Content/Medino/assets/")images/department1.jpg" alt="" class="img-fluid">
                                     <div class="hover-state">
-                                        <a href="#"><i class="fa fa-stethoscope"></i></a>
+                                        <a href=""><i class="fa fa-stethoscope"></i></a>
                                     </div>
                                 </div>
                                 <div class="single-department item-padding text-center">
-                                    <h3>cardiac clinic</h3>
-                                    <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                    <h3>Medicine</h3>
+                                    <p> A physician is a practitioner who practices medicine and seeks to maintain and restore human health through the study, diagnosis, and treatment of the patient's illness or injury.</p>
                                 </div>
                             </div>
                             <div class="single-slide">
                                 <div class="slide-img">
                                     <img src="@Url.Content("~/Content/Medino/assets/")images/department2.jpg" alt="" class="img-fluid">
                                     <div class="hover-state">
-                                        <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
+                                        <a href=""><i class="fa fa-stethoscope"></i></a>
                                     </div>
                                 </div>
                                 <div class="single-department item-padding text-center">
-                                    <h3>plastic surgery</h3>
-                                    <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                    <h3>Surgery</h3>
+                                    <p>A physician is a practitioner who practices medicine and seeks to maintain and restore human health through the study, diagnosis, and treatment of the patient's illness or injury.</p>
                                 </div>
                             </div>
                             <div class="single-slide">
                                 <div class="slide-img">
                                     <img src="@Url.Content("~/Content/Medino/assets/")images/department3.jpg" alt="" class="img-fluid">
                                     <div class="hover-state">
-                                        <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
+                                        <a href=""><i class="fa fa-stethoscope"></i></a>
                                     </div>
                                 </div>
                                 <div class="single-department item-padding text-center">
-                                    <h3>dental clinic</h3>
-                                    <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                    <h3>Orthopedic</h3>
+                                    <p>A physician is a practitioner who practices medicine and seeks to maintain and restore human health through the study, diagnosis, and treatment of the patient's illness or injury.</p>
                                 </div>
                             </div>
                             <div class="single-slide">
                                 <div class="slide-img">
                                     <img src="@Url.Content("~/Content/Medino/assets/")images/department1.jpg" alt="" class="img-fluid">
                                     <div class="hover-state">
-                                        <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
+                                        <a href=""><i class="fa fa-stethoscope"></i></a>
                                     </div>
                                 </div>
                                 <div class="single-department item-padding text-center">
-                                    <h3>cardiac clinic</h3>
-                                    <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                    <h3>Medicine</h3>
+                                    <p> A physician is a practitioner who practices medicine and seeks to maintain and restore human health through the study, diagnosis, and treatment of the patient's illness or injury.</p>
                                 </div>
                             </div>
+                           
+
                         </div>
                     </div>
                 </div>
@@ -262,13 +262,13 @@
         <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery.nice-select.min.js"></script>
         <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/superfish.min.js"></script>
         <script src="@Url.Content("~/Content/Medino/assets/")js/main.js"></script>
-
+        <div>
+            @RenderBody()
+        </div>
     </body>
 
 
 
-    <div>
-        @RenderBody()
-    </div>
+    
 </body>
 </html>

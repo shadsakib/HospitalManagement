@@ -40,13 +40,18 @@
                             <li class="menu-active"><a href="/Home">Home</a></li>
                             <li><a href='/Home/#Department'>departments</a></li>
                             <li><a href='/Home/Doctor'>Doctors</a></li>
-                            <li><a href='#'>Contact</a></li>
-                            <li><a href="/Home/Register"> Register</a></li>
+                            @if (Session["UserId"] == null)
+                            {
+                                <li><a href='/Home/Login'>Login</a></li>
+                                <li><a href="/Home/Register"> Register</a></li>
+                            }
                         </ul>
                     </nav><!-- #nav-menu-container -->
                 </div>
             </div>
         </div>
+
+
     </header>
     <div style="height:150px; width:100%"> </div>
 
@@ -86,6 +91,14 @@
     <script src="@Url.Content("~/Content/Main/assets/")js/moment.min.js"></script>
     <script src="@Url.Content("~/Content/Main/assets/")js/bootstrap-datetimepicker.min.js"></script>
     <script src="@Url.Content("~/Content/Main/assets/")js/app.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/bootstrap-4.1.3.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/wow.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/owl-carousel.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery.datetimepicker.full.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery.nice-select.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/superfish.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/main.js"></script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 ﻿@model HospitalManagement.Models.Patient
 
 @{
-    ViewBag.Title = "Register Patient";
+    ViewBag.Title = "Register";
     Layout = "~/Views/Shared/Template.cshtml";
 }
 
@@ -17,7 +17,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.PatientName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.PatientName, "Name", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.PatientName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PatientName, "", new { @class = "text-danger" })
@@ -37,18 +37,10 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.PatientAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.PatientAddress, "Address", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.PatientAddress, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PatientAddress, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ContactNo, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ContactNo, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ContactNo, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -57,6 +49,14 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ContactNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ContactNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ContactNo, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -70,8 +70,9 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -80,10 +81,15 @@
         <button class="btn btn-primary account-btn" type="submit">Signup</button>
     </div>
     <div class="text-center login-link">
-        Already have an account? <a href="#">Login</a>
+        Already have an account? <a href="/Home/Login">Login</a>
     </div>
 </div>
-<div> @Html.ActionLink("Back to HomePage", "Index") </div>    
-
 }
 
+<div>
+    @Html.ActionLink("Back to Home", "Index")
+</div>
+
+<script src="@Url.Content("~/Content/Template/assets/")js/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
