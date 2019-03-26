@@ -1,0 +1,100 @@
+﻿@model HospitalManagement.Models.Patient
+
+@{
+    ViewBag.Title = "PatientAccountInfo";
+    Layout = "~/Views/Shared/_Test.cshtml";
+}
+
+<div class="container">
+    <div class="main-container">
+        <div class="register-form edit-account">
+            <div class="form-login">
+                <form>
+                    <div class="row">
+                        <h3>Personal Information</h3>
+                        <hr>
+                        <div class="datapos">
+                            <div class="icon-data">
+                                <i class="fa fa-address-card"></i>
+                            </div>
+                                <input type="text" value="PAT-@Html.DisplayFor(model => model.PatientId)" readonly>
+                            <div class="icon-data">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <input type="number" value=@Html.DisplayFor(model => model.ContactNo) readonly>
+
+                        </div>
+                        <div class="datapos">
+
+                            <div class="icon-data">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <input type="text" value="@Html.DisplayFor(model => model.PatientName)" readonly>
+                            
+                            <div class="icon-data">
+                                <i class="fa fa-user"></i>
+                            </div>
+                                <input type="text" value=@Html.DisplayFor(model => model.Gender) readonly>
+                  
+                        </div>
+
+                        <div class="datapos">
+                            <div class="icon-data">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <input type="text" value="@Html.DisplayFor(model => model.PatientAddress)" readonly>
+                        </div>
+                            
+                        <div class="datapos">
+                            <input type="text" value=@Html.DisplayFor(model => model.BloodGroup) readonly>
+                            <div class="icon-data">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>  
+                            
+                    </div>
+
+                    <div class="row">
+                        <h3>Data Information</h3>
+                        <div class="datapos">
+
+                            <div class="icon-data">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <input type="text" value= @Html.DisplayFor(model => model.Username) readonly>
+
+                        </div>
+                        <div class="datapos">
+
+                            <div class="icon-data">
+                                <i class="fa fa-user-circle"></i>
+                            </div>
+                            <input type="text" value= @Html.DisplayFor(model => model.Password) readonly>
+
+                        </div>
+                    </div>
+
+                    <!--
+                        
+                    <button class="btn btn-default">save changes</button>
+                    <span class="help">
+                        <a href="#" class="help-link">¿Help?</a>
+                    </span>    
+                        
+                    -->
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="copyrights">
+    <div class="meet-social">
+        <span><a href="https://www.facebook.com/IwThemesTF" target="_blank"><i class="fa fa-facebook-square"></i></a></span>
+        <span><a href="https://twitter.com/iwthemes" target="_blank"><i class="fa fa-twitter-square"></i></a></span>
+        <span><a href="https://www.youtube.com/channel/UCEb3nAep6tYiAkZpqi0Kzew" target="_blank"><i class="fa fa-youtube-square"></i></a></span>
+        <span><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+    </div>
+    <p>&copy; 2017 - <a href="http://iwthemes.com/" target="_blank">IwThemes</a>&reg; Envato<img src="img/envalogo.png" alt="envato brand">. All Rights Reserved.</p>
+</div>

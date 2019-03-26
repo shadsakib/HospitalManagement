@@ -24,7 +24,7 @@ namespace HospitalManagement.Controllers
             }
             else
             {
-                return View("LoggedIn");
+                return RedirectToAction("Test");
             }
             
         }
@@ -36,9 +36,12 @@ namespace HospitalManagement.Controllers
             foreach (string key in collection.AllKeys)
             {
                 if (key.StartsWith("_")) continue;
+
+                /*
                 Response.Write("Key = " + key + " , ");
                 Response.Write("Value = " + collection[key]);
                 Response.Write("<br/>");
+                */
                 if (collection[key] == "") filledUp = false;
             }
 
@@ -61,7 +64,7 @@ namespace HospitalManagement.Controllers
 
                 Session["UserId"] = p.PatientId.ToString();
                 Session["Username"] = p.PatientName.ToString();
-                return View("Loggedin");
+                return View("Test");
             }
 
             return View();
@@ -76,7 +79,7 @@ namespace HospitalManagement.Controllers
             }
             else
             {
-                return View("LoggedIn");
+                return View("Test");
             }
         }
 
@@ -101,7 +104,7 @@ namespace HospitalManagement.Controllers
                 {
                     Session["UserId"] = p.PatientId.ToString();
                     Session["Username"] = p.PatientName.ToString();
-                    return View("Loggedin");
+                    return View("Test");
                 }
                 else
                 {
@@ -111,7 +114,7 @@ namespace HospitalManagement.Controllers
             }
             else
             {
-                return View("LoggedIn");
+                return View("Test");
             }
                             
         }
@@ -120,7 +123,7 @@ namespace HospitalManagement.Controllers
         {
             if(Session["UserId"] != null)
             {
-                return View();
+                return View("Test");
             }
             else
             {
@@ -130,46 +133,17 @@ namespace HospitalManagement.Controllers
      
         }
 
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Doctor()
         {
             return View();
         }
-        public ActionResult Patients()
-        {
-            HospitalContext patientContext = new HospitalContext();
-            var model = new List<Patient>();
-            model = patientContext.Patients.ToList();
-            return View(model);
-        }
-        public ActionResult DoctorSchedules()
-        {
-            HospitalContext doctorScheduleContext = new HospitalContext();
-            var model = new List<DoctorSchedule>();
-            model = doctorScheduleContext.DoctorSchedules.ToList();
-            return View(model);
-        }
-        public ActionResult Medicines()
-        {
-            HospitalContext medicineContext = new HospitalContext();
-            var model = new List<Medicine>();
-            model = medicineContext.Medicines.ToList();
-            return View(model);
-        }
-        public ActionResult Prescriptions()
-        {
-            HospitalContext prescriptionContext = new HospitalContext();
-            var model = new List<Prescription>();
-            model = prescriptionContext.Prescriptions.ToList();
-            return View(model);
-        }
-        public ActionResult Tests()
-        {
-            HospitalContext testContext = new HospitalContext();
-            var model = new List<Test>();
-            model = testContext.Tests.ToList();
-            return View(model);
-        }
-
+             
         public ActionResult Home()
         {
             return View();
@@ -182,7 +156,30 @@ namespace HospitalManagement.Controllers
 
         public ActionResult Test()
         {
-            return View();
+            if(Session["UserId"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                return View();
+            }
         }
+
+        public ActionResult PatientAccountInfo()
+        {
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                HospitalContext hc = new HospitalContext();
+                Patient p = hc.Patients.Find(Int32.Parse(Session["UserId"].ToString()));
+
+                return View(p);
+            }
+        }
+
     }
 }

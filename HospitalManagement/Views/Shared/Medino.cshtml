@@ -70,6 +70,10 @@
                                     <li><a href='/Home/Login'>Login</a></li>
                                     <li><a href="/Home/Register"> Register</a></li>
                                 }
+                                else
+                                {
+                                    <li><a href='/Home/Test'> My Profile</a></li>
+                                }
                             </ul>
                         </nav><!-- #nav-menu-container -->
                     </div>
@@ -87,7 +91,14 @@
                         <p>
                             Now, you can book your appointment online!
                         </p>
-                        <a href="/Home/Register" class="template-btn mt-3">Register now</a>
+                        @if (Session["UserId"] == null)
+                        {
+                            <a href="/Home/Register" class="template-btn mt-3"> Register </a>
+                        }
+                        else
+                        {
+                            <a href="/Home/Register" class="template-btn mt-3"> Go to profile </a>
+                        }
                     </div>
                 </div>
             </div>
@@ -133,9 +144,9 @@
                     </div>
                     <div class="col-lg-7">
                         <div class="welcome-text mt-5 mt-lg-0">
-                            <h2>Welcome to our clinic</h2>
-                            <p class="pt-3">Subdue whales void god which living don't midst lesser yielding over lights whose. Cattle greater brought sixth fly den dry good tree isn't seed stars were.</p>
-                            <p>Subdue whales void god which living don't midst lesser yielding over lights whose. Cattle greater brought sixth fly den dry good tree isn't seed stars were the boring.</p>
+                            <h2>Welcome to our hospital</h2>
+                            <p class="pt-3">Book, cancel or reschedule appointment instantly on the website. Once you are registered, you can receive all of your prescriptions and test results here.</p>
+                            <p>No need to worry about your reports and prescriptions. Now you'll have all of them in one place! Secured and never to be lost! </p>
                         </div>
                     </div>
                 </div>
@@ -150,7 +161,7 @@
                     <div class="col-lg-6 offset-lg-3">
                         <div class="section-top text-center">
                             <h2>Popular department</h2>
-                            <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree word link available in the service for subdue fruit.</p>
+                            <p>All departments have highly qualified doctors who diagnose and treat patients professionally.</p>
                         </div>
                     </div>
                 </div>
