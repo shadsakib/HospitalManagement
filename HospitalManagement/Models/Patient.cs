@@ -12,7 +12,7 @@ namespace HospitalManagement.Models
     {
         public int PatientId{ get; set; }
 
-        [Required(ErrorMessage = "This field is required")]
+        [Required(ErrorMessage = "This field is not required")]
         public string PatientName { get; set; }
         [Required(ErrorMessage = "This field is required")]
         public string Username { get; set; }
