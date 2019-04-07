@@ -12,6 +12,31 @@ namespace HospitalManagement.Controllers
     {
         public ActionResult Index()
         {
+            DateTime x = new DateTime(2013, 9, 15, 12, 0, 0);
+            DateTime myTime = default(DateTime).Add(x.TimeOfDay);
+            x.AddMinutes(2.0);
+            return View();
+        }
+
+        public ActionResult Appointment()
+        {
+            HospitalContext hc = new HospitalContext();
+            List<Doctor> doctors = hc.Doctors.ToList();
+            ViewBag.doctors = doctors;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Appointment(FormCollection collection)
+        {
+            foreach (string key in collection.AllKeys)
+            {       
+                Response.Write("Key = " + key + " , ");
+                Response.Write("Value = " + collection[key]);
+                Response.Write("<br/>");
+            }
+
             return View();
         }
 
@@ -163,6 +188,19 @@ namespace HospitalManagement.Controllers
             else
             {
                 return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Test(FormCollection collection)
+        {
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                return RedirectToAction("Index");
             }
         }
 

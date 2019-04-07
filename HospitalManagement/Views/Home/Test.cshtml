@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Test";
-    Layout = "~/Views/Shared/_Test.cshtml";
+    Layout = "~/Views/Shared/_profile.cshtml";
 }
 
 <div class="main-container">
@@ -37,7 +37,9 @@
                         <option value="5">DR. OUSHY</option>
                     </select>
                     <a href="/Home/doctor" class="know-doctors">Don't know our doctors?</a>
+
                     <span class="btn btn-green btn-small btn-search-appointment"><i class="fa fa-search"></i> Book</span>
+                    <!-- <button type="submit" class="btn btn-green btn-xsmall"> <i class="fa fa-search"></i> Book </button> -->
                 </form>
             </div>
             <div class="preview-appointment">
@@ -92,7 +94,7 @@
                                 <td title="No Available">9</td>
                                 <td title="No Available">10</td>
                                 <td title="No Available">11</td>
-                                <td title="No Available">12</td>
+                                <td> <span class="date-numer" id="2" data-toggle="tooltip" data-placement="top" title="¡Available!">12</span></td>
                                 <td class="passdate">13</td>
                             </tr>
                             <tr>
@@ -496,6 +498,12 @@
     </div>
 </div>
 
+<div>
+    <h2> Book Appointment </h2>
+
+
+</div>
+
 <div class="copyrights">
     <div class="meet-social">
         <span><a href="https://www.facebook.com/IwThemesTF" target="_blank"><i class="fa fa-facebook-square"></i></a></span>
@@ -549,7 +557,7 @@
                 </div>
                 <p>Please confirm your password account to get your appointment medical:</p>
                 <input type="password" placeholder="Password">
-                <a class="btn btn-green btn-xsmall" href="#">confirm</a>
+                <button type="submit" class="btn btn-green btn-xsmall">confirm</button>
             </div>
         </div>
     </div>

@@ -11,113 +11,77 @@
     <meta name="google" content="nositelinkssearchbox" />
     <link href=@Url.Content("~/Content/Profile/css/styles.css") rel="stylesheet" media="screen">
     <link rel="shortcut icon" type="image/ico" href="@Url.Content("~/Content/Profile/img/favicon.ico")" />
+
 </head>
 
-
 <body>
-    <div class="container">
-        <div class="main-container">
+    <div id="layout">
+        <header style="background:ghostwhite">
+            <div class="container">
+                <div class="row">
+                    <div class="logo">
+                        <a href="/Home/Index"><img src="@Url.Content("~/Content/Medino/assets/")images/logo/logo.png" alt="logo"></a>
+                    </div>
 
-            <div class="register-form edit-account">
-                <div class="form-login">
-                    <form>
-
-                        <div class="row">
-                            <h3>Personal Information</h3>
-                            <hr>
-                            <div class="datapos">
-
-                                <div class="icon-data">
-                                    <i class="fa fa-address-card"></i>
-                                </div>
-                                <select disabled class="disable">
-                                    <option selected>Id Number</option>
-                                    <option>Select a Document</option>
-                                </select>
-
-
-                                <div class="icon-data">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <input type="text" placeholder="Johna">
-
-
-                                <div class="icon-data">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <input type="number" placeholder="090-192763">
-
-
-                                <label>
-                                    <input type="radio" checked value="female"> <span>Female</span>
-                                </label>
-                                <label>
-                                    <input type="radio" value="male"> Male
-                                </label>
-
+                    <div class="tools-top">
+                        <div class="avatar-profile">
+                            <div class="user-edit">
+                                <h4 style="color:black">@Session["Username"]</h4>
+                                <a style="color:black" href="/Home/PatientAccountInfo">edit profile</a>
                             </div>
-                            <div class="datapos">
-
-                                <div class="icon-data">
-                                    <i class="fa fa-user-circle"></i>
-                                </div>
-                                <input type="number" disabled="disabled" class="disable" placeholder="09876543210">
-
-
-                                <div class="icon-data">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <input type="text" placeholder="Depp">
-
-
-                                <div class="icon-data">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <input type="number" placeholder="090-192763">
-
-
-                                <div class="avatar-profile">
-                                    <label>Image Profile</label>
-                                    <input type="file" accept="image/*">
-                                </div>
-
+                            <div class="avatar-image">
+                                <img src="@Url.Content("~/Content/Profile/")img/avatar-profile.jpg" alt="avatar profile" class="img-responsive">
                             </div>
                         </div>
-
-
-                        <div class="row">
-                            <h3>Data Information</h3>
-                            <div class="datapos">
-
-                                <div class="icon-data">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <input type="text" placeholder="JohnaDeepe">
-
-
-                                <div class="icon-data">
-                                    <i class="fa fa-user-circle"></i>
-                                </div>
-                                <input type="password" placeholder="Confirm Password">
-
-                            </div>
-                            <div class="datapos">
-
-                                <div class="icon-data">
-                                    <i class="fa fa-user-circle"></i>
-                                </div>
-                                <input type="password" placeholder="Password">
-
-                            </div>
-                        </div>
-
-                        <button class="btn btn-default">save changes</button>
-                        <span class="help">
-                            <a href="#" class="help-link">¿Help?</a>
-                        </span>
-                    </form>
+                        <ul class="tools-help">
+                            <li><a style="color:black" href="#" title="Help" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-question-circle"></i></a></li>
+                            <li><a style="color:black" href="/Home/Logout" title="Logout" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-sign-out"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </header>
 
-    @RenderBody();
+        <nav>
+            <div class="container">
+                <h4 class="navbar-brand">menu</h4>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li> <i class="fa fa-address-book-o"></i> <a href="/Home/Test"> book appointment</a> </li>
+                        <li> <i class="fa fa-files-o"></i> <a href="#">Result Examinations</a> </li>
+                        <li> <i class="fa fa-files-o"></i> <a href="#">Prescriptions</a> </li>
+                        <li> <i class="fa fa-pencil"></i> <a href="/Home/PatientAccountInfo">my account</a> </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <div> </div>
+        @RenderBody()
+
+    </div>
+
+    <script data-cfasync="false" src="@Url.Content("~/Content/Profile/")cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script type="39c83edf3988fce0c205f478-text/javascript" src="@Url.Content("~/Content/Profile/")js/jquery.js"></script>
+    <script type="39c83edf3988fce0c205f478-text/javascript" src="@Url.Content("~/Content/Profile/")js/jquery-ui.min.js"></script>
+    <script type="39c83edf3988fce0c205f478-text/javascript" src="@Url.Content("~/Content/Profile/")js/bootstrap.min.js"></script>
+    <script type="39c83edf3988fce0c205f478-text/javascript" src="@Url.Content("~/Content/Profile/")js/bootstrap-sprockets.js"></script>
+    <script type="39c83edf3988fce0c205f478-text/javascript" src="@Url.Content("~/Content/Profile/")js/main.js"></script>
+    <script src="@Url.Content("~/Content/Profile/")/ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js" data-cf-settings="39c83edf3988fce0c205f478-|49" defer=""></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/bootstrap-4.1.3.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/wow.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/owl-carousel.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/jquery.datetimepicker.full.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/vendor/superfish.min.js"></script>
+    <script src="@Url.Content("~/Content/Medino/assets/")js/main.js"></script>
+
 </body>
+
+</html>

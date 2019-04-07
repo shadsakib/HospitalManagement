@@ -137,6 +137,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\HospitalContext.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\DoctorSchedule.cs" />
@@ -723,10 +724,12 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\LoggedIn.cshtml" />
-    <Content Include="Views\Shared\_Profile.cshtml" />
     <Content Include="Views\Shared\_Test.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\PatientAccountInfo.cshtml" />
+    <Content Include="Views\Home\Appointment.cshtml" />
+    <Content Include="Views\Backup\_Profile.cshtml" />
+    <Content Include="Views\Shared\_profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />

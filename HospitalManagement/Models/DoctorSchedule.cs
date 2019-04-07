@@ -16,6 +16,6 @@ namespace HospitalManagement.Models
         public string DoctorName { get; set; }
         public int TotalSlots { get; set; }
         public string DaysOfTheWeek { get; set; }
-        public string Time { get; set; }
+        public String Time { get; set; }
     }
 }
