@@ -12,9 +12,6 @@ namespace HospitalManagement.Controllers
     {
         public ActionResult Index()
         {
-            DateTime x = new DateTime(2013, 9, 15, 12, 0, 0);
-            DateTime myTime = default(DateTime).Add(x.TimeOfDay);
-            x.AddMinutes(2.0);
             return View();
         }
 
