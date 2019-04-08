@@ -713,7 +713,6 @@
     <Content Include="Views\Home\Patients.cshtml" />
     <Content Include="Views\Home\DoctorSchedules.cshtml" />
     <Content Include="Views\Home\Medicines.cshtml" />
-    <Content Include="Views\Home\Prescriptions.cshtml" />
     <Content Include="Views\Home\Tests.cshtml" />
     <Content Include="Views\Shared\Template.cshtml" />
     <Content Include="Views\Shared\Medino.cshtml" />
@@ -730,8 +729,13 @@
     <Content Include="Views\Home\Appointment.cshtml" />
     <Content Include="Views\Backup\_Profile.cshtml" />
     <Content Include="Views\Shared\_profile.cshtml" />
+    <Content Include="Views\Home\ViewPrescription.cshtml" />
+    <Content Include="Views\Home\WritePrescription.cshtml" />
+    <Content Include="Views\Home\AppointmentList.cshtml" />
+    <Content Include="Views\Home\PrescriptionList.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Patient\" />
   </ItemGroup>

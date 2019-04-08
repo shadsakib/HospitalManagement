@@ -12,8 +12,6 @@ namespace HospitalManagement.Models
     {
         [Key]
         public int PId { get; set; }
-        public int DoctorId { get; set; }
-        public int PatientId { get; set; }
         public string Symptoms { get; set; }
         public string Diagnosis { get; set; }
         public string Advice { get; set; }

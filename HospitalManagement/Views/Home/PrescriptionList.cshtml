@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HospitalManagement.Models.Prescription>
+@using HospitalManagement.Models
+@using System.Globalization;
+@{
+    ViewBag.Title = "PrescriptionList";
+    Layout = "~/Views/Shared/_profile.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title"> My Prescriptions </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Prescription Id
+                        </th>
+                        <th>
+                            Doctor Name
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Diagnosis)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Date)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+
+                            HospitalContext hc = new HospitalContext();
+                            Appointment a; Patient p; Doctor d;
+                            a = hc.Appointments.First(u => u.PrescriptionId == item.PId);
+                            p = hc.Patients.Find(a.PatientId);
+                            d = hc.Doctors.Find(a.DoctorId);
+
+                       /*
+                            if (a.PatientId == Int32.Parse(Session["UserId"].ToString())) { 
+                            show prescription list for logged in user}
+
+                            */
+                        <tr>
+                            <td>
+
+                                @Html.DisplayFor(modelItem => item.PId)
+                            </td>
+                            <td>
+                                @d.DoctorName
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Diagnosis)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.ActionLink("View Prescription", "ViewPrescription", item)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
