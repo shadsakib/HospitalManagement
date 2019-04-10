@@ -19,7 +19,8 @@ namespace HospitalManagement.Controllers
         public ActionResult Schedule()
         {
             HospitalContext hc = new HospitalContext();
-            DoctorSchedule ds = hc.DoctorSchedules.Find(1);
+            int docId = Int32.Parse(Session["DoctorId"].ToString());
+            DoctorSchedule ds = hc.DoctorSchedules.Find(docId);
             return View(ds);
         }
 
@@ -67,9 +68,11 @@ namespace HospitalManagement.Controllers
 
         public ActionResult MyAppointments()
         {
+            int user = Int32.Parse(Session["UserId"].ToString());
             HospitalContext hc = new HospitalContext();
-
-            return View(hc.Appointments.ToList());
+            List<Appointment> apps = (hc.Appointments.Where(x => (x.PatientId == user)
+                   && x.Status == "Scheduled")).ToList();
+            return View(apps);
         }
 
         public ActionResult DocInfo()
@@ -210,7 +213,8 @@ namespace HospitalManagement.Controllers
         public ActionResult AppointmentList()
         {
             HospitalContext hc = new HospitalContext();
-            List<Appointment> a = hc.Appointments.ToList();
+            List<Appointment> a = (hc.Appointments.Where( x => (x.PatientId == (Int32.Parse(Session["UserId"].ToString())))
+                    && x.Status=="Scheduled") ).ToList();
             return View(a);
         }
 
@@ -267,14 +271,14 @@ namespace HospitalManagement.Controllers
                 Response.Write(time);
                 //DateTime dt = DateTime.ParseExact(date+time, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
                 HospitalContext hc = new HospitalContext();
-                Doctor d = hc.Doctors.Single(u => u.DoctorName == doctorName);
-                Appointment b = hc.Appointments.OrderByDescending(x => x.AppointmentId).First();
-                int k = b.AppointmentId + 1;
+                int docId = hc.Doctors.Where(u => u.DoctorName == doctorName).Select(u => u.DoctorId).First();
+
                 Appointment a = new Appointment
                 {
-                    DoctorId = d.DoctorId,
+                    DoctorId = docId,
                     PatientId = Int32.Parse(Session["UserId"].ToString()),
                     Date = dt,
+                    Status = "Scheduled"
                 };
 
                 hc.Appointments.Add(a);
@@ -375,9 +379,11 @@ namespace HospitalManagement.Controllers
         }
         public ActionResult DocProfile()
         {
+            String docName = Session["DoctorName"].ToString();
             HospitalContext hc = new HospitalContext();
-            List<Appointment> a = hc.Appointments.ToList();
-            return View(a);
+            int docId = Int32.Parse(Session["DoctorId"].ToString());
+            List<Appointment> apps = hc.Appointments.Where(x => x.DoctorId == docId && x.Status == "Scheduled").ToList();
+            return View(apps);
         }
 
         public ActionResult DocLogin()
