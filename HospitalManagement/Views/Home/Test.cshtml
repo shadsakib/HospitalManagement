@@ -9,166 +9,134 @@
 }
 
 
-<div class="main-container">
-    <div class="container">
-        <div class="content">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <h4 class="page-title">Add Appointment</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Appointment ID</label>
-                                    <input class="form-control" type="text" value="APT-0001" readonly="">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Patient Name</label>
-                                    <input class="form-control" value="@Session["Username"]" type="text" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Department</label>
-                                    <select>
-                                        <option>Select</option>
-                                        <option>Dentists</option>
-                                        <option>Neurology</option>
-                                        <option>Opthalmology</option>
-                                        <option>Orthopedics</option>
-                                        <option>Cancer Department</option>
-                                        <option>ENT Department</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Doctor Name</label>
-                                <div class="form-group">
-                                    @{
-                                        List<SelectListItem> dlist = new List<SelectListItem>();
-                                        HospitalContext hc = new HospitalContext();
-                                        List<Doctor> doctors = hc.Doctors.ToList();
-                                        foreach (Doctor d in doctors)
-                                        {
-                                            dlist.Add(new SelectListItem { Text = d.DoctorName, Value = d.DoctorName });
-                                        }
-                                    }
-                                    @Html.DropDownList("DoctorName", dlist)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
 
-                                    <div class="cal-icon">
-                                        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        @{
-                                            HospitalContext h = new HospitalContext();
-                                            DoctorSchedule schedule = h.DoctorSchedules.Find(2);
 
-                                            List<SelectListItem> l = new List<SelectListItem>();
-                                            DateTime today = DateTime.Today;
-
-                                            for (int i = 0; i < 4; i++)
-                                            {
-                                                l.Add(new SelectListItem { Text = today.ToString("dd/MM/yyyy"), Value = today.ToString("dd/MM/yyyy") });
-                                                today = today.AddDays(1);
-                                            }
-                                            @Html.DropDownList("Date", l)
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Available Time Slots</label>
-                                    <div class="time-icon">
-                                        @{
-
-                                            List<SelectListItem> list = new List<SelectListItem>();
-                                            String[] times = schedule.Time.Split('-');
-
-                                            DateTime time = DateTime.ParseExact(times[0], "hh:mm tt", CultureInfo.InvariantCulture);
-                                            while (time.ToString("hh:mm tt") != times[1])
-                                            {
-                                                list.Add(new SelectListItem { Text = time.ToString("hh:mm tt"), Value = time.ToString("hh:mm tt") });
-                                                time = time.AddMinutes(20);
-                                            }
-                                            list.Add(new SelectListItem { Text = time.ToString("hh:mm tt"), Value = time.ToString("hh:mm tt") });
-                                            @Html.DropDownList("Time", list)
-
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-t-20 text-center">
-                            <button type="submit" class="btn btn-primary submit-btn">Create Appointment</button>
-                        </div>
-                    </form>
-                </div>
-
-                <!--
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div class="form-horizontal">
-                        <h4>Appointment</h4>
-                        <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.DoctorId, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.DoctorId, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.PatientId, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.PatientId, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.PrescriptionId, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.PrescriptionId, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.PrescriptionId, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" />
-                            </div>
-                        </div>
+    <div class="main-container">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Appointment</h4>
                     </div>
-                }
-                -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Appointment ID</label>
+                                        <input class="form-control" type="text" value="APT-0001" readonly="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Patient Name</label>
+                                        <input class="form-control" value="@Session["Username"]" type="text" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Department</label>
+                                            <select>
+                                                <option>Select</option>
+                                                <option>Dentists</option>
+                                                <option>Neurology</option>
+                                                <option>Opthalmology</option>
+                                                <option>Orthopedics</option>
+                                                <option>Cancer Department</option>
+                                                <option>ENT Department</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Doctor Name</label>
+                                        <div class="form-group">
+                                            @{
+                                                List<SelectListItem> dlist = new List<SelectListItem>();
+                                                HospitalContext hc = new HospitalContext();
+                                                List<Doctor> doctors = hc.Doctors.ToList();
+                                                foreach (Doctor d in doctors)
+                                                {
+                                                    dlist.Add(new SelectListItem { Text = d.DoctorName, Value = d.DoctorName });
+                                                }
+                                            }
+                                            @Html.DropDownList("DoctorName", dlist)
+                                        </div>
+                                    </div>
+                                
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
 
+                                        <div class="cal-icon">
+                                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @{
+                                                HospitalContext h = new HospitalContext();
+                                                DoctorSchedule schedule = h.DoctorSchedules.Find(2);
+
+                                                List<SelectListItem> l = new List<SelectListItem>();
+                                                DateTime today = DateTime.Today;
+
+                                                for (int i = 0; i < 4; i++)
+                                                {
+                                                    l.Add(new SelectListItem { Text = today.ToString("dd/MM/yyyy"), Value = today.ToString("dd/MM/yyyy") });
+                                                    today = today.AddDays(1);
+                                                }
+                                                @Html.DropDownList("Date", l)
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Available Time Slots</label>
+                                        <div class="time-icon">
+                                            @{
+
+                                                List<SelectListItem> list = new List<SelectListItem>();
+                                                String[] times = schedule.Time.Split('-');
+
+                                                DateTime time = DateTime.ParseExact(times[0], "hh:mm tt", CultureInfo.InvariantCulture);                 
+                                                while (time.ToString("hh:mm tt") != times[1])
+                                                {
+                                                    list.Add(new SelectListItem { Text = time.ToString("hh:mm tt"), Value = time.ToString("hh:mm tt") });
+                                                    time = time.AddMinutes(20);
+                                                }
+                                                list.Add(new SelectListItem { Text = time.ToString("hh:mm tt"), Value = time.ToString("hh:mm tt") });
+                                                @Html.DropDownList("Time", list)
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-t-20 text-center">
+                                <button type="submit" class="btn btn-primary submit-btn">Create Appointment</button>
+                            </div>
+                        }
+                    </div>
+                   
+
+    
+           
+
+                </div>
             </div>
         </div>
     </div>
-</div>
+        </div>
 
-<div class="copyrights">
-    <div class="meet-social">
-        <span><a href="https://www.facebook.com/IwThemesTF" target="_blank"><i class="fa fa-facebook-square"></i></a></span>
-        <span><a href="https://twitter.com/iwthemes" target="_blank"><i class="fa fa-twitter-square"></i></a></span>
-        <span><a href="https://www.youtube.com/channel/UCEb3nAep6tYiAkZpqi0Kzew" target="_blank"><i class="fa fa-youtube-square"></i></a></span>
-        <span><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+    <div class="copyrights">
+        <div class="meet-social">
+            <span><a href="https://www.facebook.com/IwThemesTF" target="_blank"><i class="fa fa-facebook-square"></i></a></span>
+            <span><a href="https://twitter.com/iwthemes" target="_blank"><i class="fa fa-twitter-square"></i></a></span>
+            <span><a href="https://www.youtube.com/channel/UCEb3nAep6tYiAkZpqi0Kzew" target="_blank"><i class="fa fa-youtube-square"></i></a></span>
+            <span><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+        </div>
+        <p>&copy; 2017 - <a href="http://iwthemes.com/" target="_blank">IwThemes</a>&reg; Envato<img src="@Url.Content("~/Content/Profile/")img/envalogo.png" alt="envato brand">. All Rights Reserved. </p>
     </div>
-    <p>&copy; 2017 - <a href="http://iwthemes.com/" target="_blank">IwThemes</a>&reg; Envato<img src="@Url.Content("~/Content/Profile/")img/envalogo.png" alt="envato brand">. All Rights Reserved. </p>
-</div>

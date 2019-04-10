@@ -47,7 +47,14 @@
                             }
                             else
                             {
-                                <li><a href='/Home/Test'> My Profile</a></li>
+                                if (Session["DoctorId"] == null)
+                                {
+                                    <li><a href='/Home/Test'> My Profile</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href='/Home/DocProfile'> My Profile</a></li>
+                                }
                             }
                         </ul>
                     </nav><!-- #nav-menu-container -->

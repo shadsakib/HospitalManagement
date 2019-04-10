@@ -1,58 +1,72 @@
 ﻿@model HospitalManagement.Models.Prescription
 
 @{
-    Layout = "~/Views/Shared/_profile.cshtml";
+    ViewBag.Title = "WritePrescription";
+    Layout = "~/Views/Shared/_profile-doc.cshtml";
 }
 
-<h2>Prescriptions</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4 style="text-align:center">Prescription</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Symptoms, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Symptoms, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                @Html.ValidationMessageFor(model => model.Symptoms, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diagnosis, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Diagnosis, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                @Html.ValidationMessageFor(model => model.Diagnosis, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Advice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Advice, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                @Html.ValidationMessageFor(model => model.Advice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Medication, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Medication, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                @Html.ValidationMessageFor(model => model.Medication, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
 
 <div>
-    <h4>Prescription</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Symptoms)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Symptoms)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Diagnosis)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Diagnosis)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Advice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Advice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Medication)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Medication)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PId }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
+
+<div class="copyrights">
+    <div class="meet-social">
+        <span><a href="https://www.facebook.com/IwThemesTF" target="_blank"><i class="fa fa-facebook-square"></i></a></span>
+        <span><a href="https://twitter.com/iwthemes" target="_blank"><i class="fa fa-twitter-square"></i></a></span>
+        <span><a href="https://www.youtube.com/channel/UCEb3nAep6tYiAkZpqi0Kzew" target="_blank"><i class="fa fa-youtube-square"></i></a></span>
+        <span><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+    </div>
+    <p>&copy; 2017 - <a href="http://iwthemes.com/" target="_blank">IwThemes</a>&reg; Envato<img src="@Url.Content("~/Content/Profile/")img/envalogo.png" alt="envato brand">. All Rights Reserved. </p>
+</div>

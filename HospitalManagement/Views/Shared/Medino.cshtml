@@ -63,7 +63,14 @@
                                 }
                                 else
                                 {
-                                    <li><a href='/Home/Test'> My Profile</a></li>
+                                    if (Session["DoctorId"] == null)
+                                    {
+                                        <li><a href='/Home/Test'> My Profile</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href='/Home/DocProfile'> My Profile</a></li>
+                                    }
                                 }
                             </ul>
                         </nav><!-- #nav-menu-container -->
@@ -82,13 +89,17 @@
                         <p>
                             Now, you can book your appointment online!
                         </p>
-                        @if (Session["UserId"] == null)
+                        @if (Session["UserId"] == null && Session["DoctorId"] == null)
                         {
                             <a href="/Home/Register" class="template-btn mt-3"> Register </a>
                         }
-                        else
+                        else if (Session["DoctorId"] != null)
                         {
-                            <a href="/Home/Register" class="template-btn mt-3"> Go to profile </a>
+                            <a href="/Home/DocProfile" class="template-btn mt-3"> Go to profile </a>
+                        }
+                        else if (Session["UserId"] != null)
+                        {
+                            <a href="/Home/Test" class="template-btn mt-3"> Go to profile </a>
                         }
                     </div>
                 </div>

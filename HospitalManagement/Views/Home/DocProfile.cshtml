@@ -1,0 +1,94 @@
+﻿@model IEnumerable<HospitalManagement.Models.Appointment>
+@using HospitalManagement.Models
+@using System.Globalization;
+
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_profile-doc.cshtml";
+}
+
+
+
+
+<div class="main-container">
+    <div class="container">
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-4 col-3">
+                    <h5 class="page-title"> Appointments</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AppointmentId)
+                                </th>
+                                <th>
+                                    Patient Name
+                                </th>
+                                <th>
+                                    Doctor Name
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AppointmentId)
+                                    </td>
+                                    @{
+                                        HospitalContext hc = new HospitalContext();
+                                        Patient p; Doctor d;
+                                        p = hc.Patients.Find(item.PatientId);
+                                        d = hc.Doctors.Find(item.DoctorId);
+                                    }
+                                    <td>
+                                        @p.PatientName
+                                    </td>
+                                    <td>
+                                        @d.DoctorName
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="/Home/WritePrescription" class="btn btn-outline-primary take-btn" style="background-color:deepskyblue"> Take Up</a>
+                                    </td>
+
+                                    <!--
+                                           <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId })
+                                           </td>
+                                    -->
+
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="copyrights">
+    <div class="meet-social">
+        <span><a href="https://www.facebook.com/IwThemesTF" target="_blank"><i class="fa fa-facebook-square"></i></a></span>
+        <span><a href="https://twitter.com/iwthemes" target="_blank"><i class="fa fa-twitter-square"></i></a></span>
+        <span><a href="https://www.youtube.com/channel/UCEb3nAep6tYiAkZpqi0Kzew" target="_blank"><i class="fa fa-youtube-square"></i></a></span>
+        <span><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+    </div>
+    <p>&copy; 2017 - <a href="http://iwthemes.com/" target="_blank">IwThemes</a>&reg; Envato<img src="@Url.Content("~/Content/Profile/")img/envalogo.png" alt="envato brand">. All Rights Reserved. </p>
+</div>
