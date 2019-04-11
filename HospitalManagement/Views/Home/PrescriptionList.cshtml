@@ -36,17 +36,19 @@
                     @foreach (var item in Model)
                     {
 
-                            HospitalContext hc = new HospitalContext();
-                            Appointment a; Patient p; Doctor d;
-                            a = hc.Appointments.First(u => u.PrescriptionId == item.PId);
+                        HospitalContext hc = new HospitalContext();
+                        Appointment a; Patient p; Doctor d;
+                        int userId = Int32.Parse(Session["UserId"].ToString());
+                        List<int> pids = hc.Appointments.Where(x => x.PatientId == userId).Select(x => x.PrescriptionId).ToList();
+                        a = hc.Appointments.Where(u => u.PrescriptionId == item.PId).Single();
                             p = hc.Patients.Find(a.PatientId);
-                            d = hc.Doctors.Find(a.DoctorId);
+                        d = hc.Doctors.Find(a.DoctorId);
 
-                       /*
-                            if (a.PatientId == Int32.Parse(Session["UserId"].ToString())) { 
-                            show prescription list for logged in user}
+                        /*
+                             if (a.PatientId == Int32.Parse(Session["UserId"].ToString())) { 
+                             show prescription list for logged in user}
 
-                            */
+                             */
                         <tr>
                             <td>
 

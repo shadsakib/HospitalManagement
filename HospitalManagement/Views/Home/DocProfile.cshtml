@@ -44,6 +44,9 @@
                                 <tr>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.AppointmentId)
+                                        @{ 
+                                            string l = item.AppointmentId.ToString();  
+                                        }
                                     </td>
                                     @{
                                         HospitalContext hc = new HospitalContext();
@@ -61,15 +64,8 @@
                                         @Html.DisplayFor(modelItem => item.Date)
                                     </td>
                                     <td class="text-right">
-                                        <a href="/Home/WritePrescription" class="btn btn-outline-primary take-btn" style="background-color:deepskyblue"> Take Up</a>
+                                        <input name="submit" id=@item.AppointmentId.ToString() class="btn btn-outline-primary take-btn" style="background-color:deepskyblue"> Take Up</>
                                     </td>
-                                    <!--
-                                           <td>
-                                            @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }) |
-                                            @Html.ActionLink("Details", "Details", new { id = item.AppointmentId }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId })
-                                           </td>
-                                    -->
 
                                 </tr>
                             }

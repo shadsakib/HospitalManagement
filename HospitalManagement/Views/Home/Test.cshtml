@@ -15,6 +15,53 @@
         <div class="container">
             <div class="content">
                 <div class="row">
+                    <h4 class="page-title">Doctor List</h4>
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Doctor Name
+                                    </th>
+                                    <th>
+                                        Schedule
+                                    </th>
+                                    <th>
+                                        Time Range
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                @{ 
+                                                HospitalContext hh = new HospitalContext();
+                                                List<DoctorSchedule> ll = hh.DoctorSchedules.ToList();
+                                                foreach (var item in ll)
+                                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DoctorName)
+                                        </td>
+
+                                        <td>
+                                            @item.DaysOfTheWeek
+                                        </td>
+                                        <td>
+                                            @item.Time
+                                        </td>
+
+                                    </tr>
+                                                }
+                                            }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <h3 style="color:red; align-content:center" > @ViewBag.Message</h3>
+                </div>
+                
+                <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <h4 class="page-title">Add Appointment</h4>
                     </div>
@@ -44,20 +91,6 @@
                                 {
                                     @Html.AntiForgeryToken()
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Department</label>
-                                            <select>
-                                                <option>Select</option>
-                                                <option>Dentists</option>
-                                                <option>Neurology</option>
-                                                <option>Opthalmology</option>
-                                                <option>Orthopedics</option>
-                                                <option>Cancer Department</option>
-                                                <option>ENT Department</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
                                         <label>Doctor Name</label>
                                         <div class="form-group">
                                             @{
@@ -66,13 +99,13 @@
                                                 List<Doctor> doctors = hc.Doctors.ToList();
                                                 foreach (Doctor d in doctors)
                                                 {
-                                                    dlist.Add(new SelectListItem { Text = d.DoctorName, Value = d.DoctorName });
+                                                    dlist.Add(new SelectListItem { Text = d.DoctorName+"("+d.Department+")", Value = d.DoctorName });
                                                 }
                                             }
                                             @Html.DropDownList("DoctorName", dlist)
                                         </div>
                                     </div>
-
+                                    <div class="col-md-6"> </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

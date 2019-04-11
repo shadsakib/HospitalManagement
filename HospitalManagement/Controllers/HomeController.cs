@@ -29,9 +29,11 @@ namespace HospitalManagement.Controllers
         {
             HospitalContext hc = new HospitalContext();
             DoctorSchedule ds = null;
+            int docId = 0;
             try
             {
-                ds = hc.DoctorSchedules.First(s => s.DoctorId == 1);
+                docId = Int32.Parse(Session["DoctorId"].ToString());
+                ds = hc.DoctorSchedules.First(s => s.DoctorId == docId );
             }catch(Exception ex) { }
 
             //int doctorId = 
@@ -43,17 +45,17 @@ namespace HospitalManagement.Controllers
 
             if ( ds == null)
             {
-                /*
                 DoctorSchedule s = new DoctorSchedule
                 {
-                    //DoctorId = 
+                    DoctorId = docId,
                     DoctorName = b,
                     TotalSlots = Int32.Parse(c),
                     DaysOfTheWeek = d,
                     Time = e
                 };
                 hc.DoctorSchedules.Add(s);
-                */
+                hc.SaveChanges();
+                return View(s);
             }
             else {
                 ds.DoctorName = b;
@@ -267,8 +269,6 @@ namespace HospitalManagement.Controllers
                 //time = time.Insert(6, ":00");
                 //DateTime dt = DateTime.ParseExact("08/04/2019 08:00 PM", "dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
                 DateTime dt = DateTime.ParseExact(date+" "+time, "dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
-                Response.Write(date);
-                Response.Write(time);
                 //DateTime dt = DateTime.ParseExact(date+time, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
                 HospitalContext hc = new HospitalContext();
                 int docId = hc.Doctors.Where(u => u.DoctorName == doctorName).Select(u => u.DoctorId).First();
@@ -281,10 +281,36 @@ namespace HospitalManagement.Controllers
                     Status = "Scheduled"
                 };
 
-                hc.Appointments.Add(a);
-                hc.SaveChanges();
-                return RedirectToAction("AppointmentList");
+                Appointment b = null;
+                try
+                {
+                    b = hc.Appointments.Where(u => u.Date == dt).First();
+                }catch(Exception e)
+                {
+                }
+
+                if (b == null) {
+                    hc.Appointments.Add(a);
+                    hc.SaveChanges();
+                    return RedirectToAction("myAppointments");
+                } else {
+                    ModelState.AddModelError("", "Appointment at this date and time already taken.");
+                    ViewBag.Message = "Appointment at this date and time already taken.";
+                    return View();
+                }
             }
+        }
+
+        public ActionResult Testx()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Textx(FormCollection collection)
+        {
+            Session["DoctorSelect"] = collection["DoctorName"].ToString();
+            return View("Test");
         }
 
         public ActionResult PatientAccountInfo()
@@ -327,8 +353,7 @@ namespace HospitalManagement.Controllers
         public ActionResult WritePrescription()
         {
             HospitalContext hc = new HospitalContext();
-            Prescription p = hc.Prescriptions.Find(1);
-            Prescription q = new Prescription { Date = DateTime.Today.ToString() };
+            Prescription q = new Prescription {Date = DateTime.Today.ToString() };
             return View(q);
         }
 
@@ -345,14 +370,37 @@ namespace HospitalManagement.Controllers
             p.Date = DateTime.Today.ToString();
             hc.Prescriptions.Add(p);
             hc.SaveChanges();
-            return View(p);
+
+            int appId = Int32.Parse(Session["appId"].ToString());
+            Appointment a = hc.Appointments.Find(appId);
+            a.PrescriptionId = hc.Prescriptions.Max(x => x.PId);
+            a.Status = "Complete";
+            hc.SaveChanges();
+            return View("DocProfile");
+        }
+
+        public ActionResult storeAppointmentId()
+        {
+            return View("WritePrescription");
         }
 
         public ActionResult PrescriptionList()
         {
             HospitalContext hc = new HospitalContext();
+            int userId = Int32.Parse(Session["UserId"].ToString());
+            List<int> l = hc.Appointments.Where(x => x.PatientId == userId).Select(x => x.PrescriptionId).ToList();
             List<Prescription> p = hc.Prescriptions.ToList();
-
+            List<Prescription> pp = new List<Prescription>();
+            lock (p)
+            {
+                foreach (var item in p)
+                {
+                    if (l.Contains(item.PId))
+                    {
+                        pp.Add(item);
+                    }
+                }
+            }
             /*
             List<Appointment> al = hc.Appointments.ToList();
             List<int> pids = new List<int>();
@@ -375,7 +423,7 @@ namespace HospitalManagement.Controllers
                 }
             }catch(Exception e) { }
             */
-            return View(p);
+            return View(pp);
         }
         public ActionResult DocProfile()
         {
@@ -383,6 +431,8 @@ namespace HospitalManagement.Controllers
             HospitalContext hc = new HospitalContext();
             int docId = Int32.Parse(Session["DoctorId"].ToString());
             List<Appointment> apps = hc.Appointments.Where(x => x.DoctorId == docId && x.Status == "Scheduled").ToList();
+            int appId = hc.Appointments.Where(x => x.DoctorId == docId).Select(x => x.AppointmentId).First();
+            Session["appId"] = Convert.ToString(appId);
             return View(apps);
         }
 
