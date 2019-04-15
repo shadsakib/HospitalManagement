@@ -442,6 +442,13 @@ namespace HospitalManagement.Controllers
             return View(apps);
         }
 
+        [HttpPost]
+        public ActionResult DocProfile(FormCollection collection)
+        {
+            Session["appId"] = collection["button"];
+            return RedirectToAction("writePrescription");
+        }
+
         public ActionResult DocLogin()
         {
             if (Session["DoctorId"] == null)

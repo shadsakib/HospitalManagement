@@ -64,8 +64,12 @@
                                         @Html.DisplayFor(modelItem => item.Date)
                                     </td>
                                     <td class="text-right">
-                                        <input type="button" value="Take Up" class="btn btn-outline-primary take-btn" style="background-color:deepskyblue" onclick="location.href='@Url.Action("writePrescription", "Home")'" />
-                                    </td>
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <button value=@item.AppointmentId.ToString() type="submit" name="button" class="btn btn-outline-primary take-btn" style="background-color:deepskyblue">Take up</button>
+                                        }
+                                        </td>
 
                                 </tr>
                             }
