@@ -64,7 +64,7 @@
                                         @Html.DisplayFor(modelItem => item.Date)
                                     </td>
                                     <td class="text-right">
-                                        <input name="submit" id=@item.AppointmentId.ToString() class="btn btn-outline-primary take-btn" style="background-color:deepskyblue"> Take Up</>
+                                        <input type="button" value="Take Up" class="btn btn-outline-primary take-btn" style="background-color:deepskyblue" onclick="location.href='@Url.Action("writePrescription", "Home")'" />
                                     </td>
 
                                 </tr>

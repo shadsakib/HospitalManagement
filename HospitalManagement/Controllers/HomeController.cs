@@ -376,7 +376,7 @@ namespace HospitalManagement.Controllers
             a.PrescriptionId = hc.Prescriptions.Max(x => x.PId);
             a.Status = "Complete";
             hc.SaveChanges();
-            return View("DocProfile");
+            return RedirectToAction("DocProfile");
         }
 
         public ActionResult storeAppointmentId()
@@ -430,8 +430,14 @@ namespace HospitalManagement.Controllers
             String docName = Session["DoctorName"].ToString();
             HospitalContext hc = new HospitalContext();
             int docId = Int32.Parse(Session["DoctorId"].ToString());
-            List<Appointment> apps = hc.Appointments.Where(x => x.DoctorId == docId && x.Status == "Scheduled").ToList();
-            int appId = hc.Appointments.Where(x => x.DoctorId == docId).Select(x => x.AppointmentId).First();
+            int appId =-1;
+            List<Appointment> apps = null;
+            try
+            {
+                apps = hc.Appointments.Where(x => x.DoctorId == docId && x.Status == "Scheduled").ToList();
+                appId = hc.Appointments.Where(x => x.DoctorId == docId && x.Status == "Scheduled").Select(x => x.AppointmentId).First();
+            }catch(Exception e) { }
+
             Session["appId"] = Convert.ToString(appId);
             return View(apps);
         }
