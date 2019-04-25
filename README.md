@@ -1,7 +1,14 @@
 # HospitalManagement
 A website for online hospital management based on web development using  ASP.NET and C#.
 
-*Features:*
+###Tools:
+*Visual Studio
+*Entity Framework
+*SQL Server
+*ASP.NET MVC
+*C#
+
+###Features:
 * Doctors and patients can create their profiles in the website
 * Patient or Doctor logs into their account
 * Patient can search for desired doctor
