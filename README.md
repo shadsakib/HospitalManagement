@@ -5,7 +5,8 @@ A website for online hospital management based on web development using  ASP.NET
 * Visual Studio
 * Entity Framework
 * SQL Server
-* ASP.NET MVC
+* ASP.NET
+* MVC Framework
 * C#
 
 ### Features:
