@@ -4,10 +4,11 @@ A website for online hospital management based on web development using  ASP.NET
 ### Tools:
 * Visual Studio
 * Entity Framework
-* SQL Server
 * ASP.NET
 * MVC Framework
 * C#
+
+[![Hospital](https://img.youtube.com/vi/cigIZdtEwHE/0.jpg)](https://www.youtube.com/watch?v=cigIZdtEwHE&feature=youtu.be)
 
 ### Features:
 * Doctors and patients can create their profiles in the website
